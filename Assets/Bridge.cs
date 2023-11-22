@@ -38,6 +38,26 @@ public class Bridge : MonoBehaviour
         {
             BridgeList = GetGreatest();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetState();
+        }
+    }
+
+    private void ResetState()
+    {
+        if (isMade)
+        {
+            BridgeList.Clear();
+            StateList.ForEach(l => l.Clear());
+            StateList.Clear();
+            Distance.Clear();
+            westSitePosList_sorted.Clear();
+            eastSitePosList_sorted.Clear();
+            isMade = false;
+            minIndex = -1;
+            maxIndex = -1;
+        }
     }
 
     public List<List<Vector2Int>> GetAll()
